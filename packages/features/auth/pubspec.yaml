@@ -1,0 +1,29 @@
+name: auth
+description: Auth package.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  core: ^0.0.1
+  design_system: 0.0.1
+  equatable: ^2.0.5
+  firebase_auth: ^4.12.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_masked_text2: ^0.9.1
+  font_awesome_flutter: ^10.6.0
+  foundation: 0.0.1
+  google_sign_in: ^6.1.5
+
+dev_dependencies:
+  flutter_lints: ^2.0.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

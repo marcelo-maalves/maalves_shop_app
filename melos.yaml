@@ -1,0 +1,46 @@
+name: shop_app
+
+packages:
+  - apps/**
+  - packages/**
+ignore:
+  - packages/**/example
+
+scripts:
+  fpg:
+    exec: flutter pub get
+    description: Get flutter dependencies for a specific package in this project
+    packageFilters:
+      flutter: true
+
+  generate:
+    exec: flutter pub run build_runner build --delete-conflicting-outputs
+    description: Runs the code generator for a specific package in this project
+    packageFilters:
+      flutter: true
+      dependsOn: "build_runner"
+
+  flutter_clean:
+    exec: flutter clean
+    description: Runs `flutter clean` for a specific package in this project
+    packageFilters:
+      dirExists: lib
+
+  test_flutter:
+    run: flutter test --coverage --no-pub --test-randomize-ordering-seed random
+    exec:
+      failFast: true
+    description: Run Flutter tests for a specific package in this project.
+    packageFilters:
+      flutter: true
+      dirExists: test
+
+  ci_test_flutter:
+    run: flutter test --coverage --no-pub --test-randomize-ordering-seed random
+    exec:
+      concurrency: 1
+      failFast: true
+    description: Run Flutter tests for a specific package in this project.
+    packageFilters:
+      flutter: true
+      dirExists: test
